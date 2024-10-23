@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Sections</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="C:\Users\vaibh\OneDrive\Documents\GitHub\gdg_iilm\team\assets\gdg_logo.png" alt="IILM University Logo" class="logo">
+            <span class="logo-text">IILM University</span>
+        </div>
+        <button class="back-btn">Back</button>                                                                                
+    </header>
+
+    <!-- Landing Section -->
+    <section class="landing-section" id="landing">
+        <h1 class="title">MEET THE TEAMS</h1>
+        <p class="description">
+            Our team runs on creativity, coffee, and code—where problem-solving developers, 
+            pixel-perfect designers, and laser-focused managers come together to make magic happen.
+        </p>
+        <nav class="nav-links">
+            <a href="#leads" class="nav-link">LEADS</a>
+            <a href="#developers" class="nav-link">DEVELOPERS & DESIGNERS</a>
+            <a href="#managers" class="nav-link">MANAGER</a>
+            <a href="#social" class="nav-link">SOCIAL MEDIA</a>
+            <a href="#marketing" class="nav-link">MARKETING & SPONSORSGHIP</a>
+        </nav>
+    </section>
+
+    <!-- Navigation Sidebar -->
+    <nav class="sidebar">
+        <a href="#leads" class="section-link">LEADS</a>
+        <a href="#developers" class="section-link">DEVELOPERS & DESIGNERS</a>
+        <a href="#managers" class="section-link">MANAGER</a>
+        <a href="#social" class="section-link">SOCIAL MEDIA</a>
+        <a href="#marketing" class="section-link">Marketing & Sponsorship</a>
+    </nav>
+    <!-- Team Sections -->
+    <main class="team-sections">
+        <!-- LEADS Section -->
+        <section id="leads" class="team-section">
+            <h2 class="section-title">LEADS</h2>
+            <div class="team-grid">
+                <!-- Repeat this block for each team member -->
+                <div class="team-member">
+                    <img src="C:\Users\vaibh\OneDrive\Documents\GitHub\gdg_iilm\team\assets\team_members\vaibhav_raj.jpg" alt="Team Member">
+                    <div class="social-icons">
+                        <a href="https://instagram.com/username" target="_blank"><img src="path/to/instagram-icon.png" alt="Instagram"></a>
+                        <a href="https://linkedin.com/in/username" target="_blank"><img src="path/to/linkedin-icon.png" alt="LinkedIn"></a>
+                        <a href="https://github.com/username" target="_blank"><img src="path/to/github-icon.png" alt="GitHub"></a>
+                    </div>
+                </div>
+                <!-- Repeat end -->
+            </div>
+        </section>
+
+        <!-- DEVELOPERS & DESIGNERS Section -->
+        <section id="developers" class="team-section">
+            <h2 class="section-title">DEVELOPERS & DESIGNERS</h2>
+            <div class="team-grid">
+                <!-- Team members -->
+            </div>
+        </section>
+
+        <!-- MANAGER Section -->
+        <section id="managers" class="team-section">
+            <h2 class="section-title">MANAGER</h2>
+            <div class="team-grid">
+                <!-- Team members -->
+            </div>
+        </section>
+
+        <!-- SOCIAL MEDIA Section -->
+        <section id="social" class="team-section">
+            <h2 class="section-title">SOCIAL MEDIA</h2>
+            <div class="team-grid">
+                <!-- Team members -->
+            </div>
+        </section>
+
+        <!-- Marketing & Sponsorship Section -->
+        <section id="marketing" class="team-section">
+            <h2 class="section-title">Marketing & Sponsorship</h2>
+            <div class="team-grid">
+                <!-- Team members -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Handle scroll events for animations
+document.addEventListener('scroll', () => {
+    const navLinks = document.querySelector('.nav-links');
+    const sidebar = document.querySelector('.sidebar');
+    const scrollPosition = window.scrollY;
+
+    if (scrollPosition > 200) {
+        // Fade out nav links and fade in sidebar
+        navLinks.classList.add('scrolled');
+        sidebar.classList.add('visible');
+    } else {
+        // Reset when scrolled back up
+        navLinks.classList.remove('scrolled');
+        sidebar.classList.remove('visible');
+    }
+});
+
+
+    // Update active section in sidebar
+    const sections = document.querySelectorAll('.team-section');
+    const sidebarLinks = document.querySelectorAll('.section-link');
+    
+    sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 300 && rect.bottom >= 300) {
+            sidebarLinks.forEach(link => link.classList.remove('active'));
+            sidebarLinks[index].classList.add('active');
+        }
+    });
+
+    </script>
+</body>
+</html>
